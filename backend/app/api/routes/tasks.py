@@ -44,7 +44,6 @@ def upd(
     d = item.model_dump(exclude_unset=True)
     for i in d.keys():
         setattr(inst, i, d[i])
-    db.add(inst)
     db.commit()
     db.refresh(inst)
     return inst
